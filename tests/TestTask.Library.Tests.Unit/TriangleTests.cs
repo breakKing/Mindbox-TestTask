@@ -20,4 +20,21 @@ public class TriangleTests
         // Assert
         area.Should().BeApproximately(expectedArea, DoubleExtensions.ERROR);
     }
+
+    [Theory]
+    [InlineData(new double[] {-1, 1, 1})]
+    [InlineData(new double[] {0, 0, 0})]
+    [InlineData(new double[] {1, 1, 3})]
+    [InlineData(new double[] {1, 2, 3, 4})]
+    public void Constructor_ShouldThrow_WhenSidesAreNotCorrect(double[] sides)
+    {
+        // Assign
+        
+        
+        // Act
+        Action act = () => new Triangle(sides);
+        
+        // Assert
+        act.Should().Throw<ArgumentException>();
+    }
 }
