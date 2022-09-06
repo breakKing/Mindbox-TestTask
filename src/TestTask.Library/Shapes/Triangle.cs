@@ -23,11 +23,18 @@ public class Triangle : Shape
                 throw new ArgumentException("Triangle must have positive side lengths", nameof(value));
             }
 
+            var sidesSum = value.Sum();
+            // Если хоть одна сторона короче, чем суммарная длина двух других, то треугольник не существует
+            if (value.Any(s => sidesSum - s <= s))
+            {
+                throw new ArgumentException("Triangle with such side lengths cannot exist", nameof(value));
+            }
+
             sides = value;
         }
     }
 
-    public Triangle(double[] sides)
+    public Triangle(params double[] sides)
     {
         Sides = sides;
     }
