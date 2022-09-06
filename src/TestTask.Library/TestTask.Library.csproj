@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="TestTask.Library.Tests.Unit"></InternalsVisibleTo>
+  </ItemGroup>
+
 </Project>
