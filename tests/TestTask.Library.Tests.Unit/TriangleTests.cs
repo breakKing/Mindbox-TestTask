@@ -37,21 +37,4 @@ public class TriangleTests
         // Assert
         act.Should().Throw<ArgumentException>();
     }
-
-    [Theory]
-    [InlineData(new double[] {3, 4, 5}, true)]
-    [InlineData(new double[] {4, 5, 3}, true)]
-    [InlineData(new double[] {6, 9, 7}, false)]
-    [InlineData(new double[] {13, 19, 18}, false)]
-    public void IsRightAngleTriangle_ShouldReturnCorrectResult(double[] sides, bool expected)
-    {
-        // Assign
-        var triangle = new Triangle(sides);
-        
-        // Act
-        var result = triangle.IsRightAngleTriangle();
-        
-        // Assert
-        result.Should().Be(expected);
-    }
 }

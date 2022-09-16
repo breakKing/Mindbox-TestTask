@@ -1,5 +1,4 @@
 using FluentAssertions;
-using FluentAssertions.Extensions;
 using TestTask.Library.Common;
 using TestTask.Library.Shapes;
 using TestTask.Library.Tests.Unit.TestData;
