@@ -9,13 +9,27 @@ public class TriangleTests
 {
     [Theory]
     [ClassData(typeof(TriangleTestData))]
-    public void GetArea_ShouldReturnCorrectAnswer(Triangle triangle, double expectedArea)
+    public void TriangleGetArea_ShouldReturnCorrectAnswer(Triangle triangle, double expectedArea)
     {
         // Assign
         
         
         // Act
         var area = triangle.GetArea();
+        
+        // Assert
+        area.Should().BeApproximately(expectedArea, DoubleExtensions.ERROR);
+    }
+
+    [Theory]
+    [ClassData(typeof(TriangleTestData))]
+    public void ShapeGetArea_ShouldGiveSomeResultForTriangle(Triangle triangle, double expectedArea)
+    {
+        // Assign
+        
+        
+        // Act
+        var area = Shape.GetArea(triangle);
         
         // Assert
         area.Should().BeApproximately(expectedArea, DoubleExtensions.ERROR);

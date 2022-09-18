@@ -9,13 +9,27 @@ public class CircleTests
 {
     [Theory]
     [ClassData(typeof(CircleTestData))]
-    public void GetArea_ShouldReturnCorrectAnswer(Circle circle, double expectedArea)
+    public void CircleGetArea_ShouldReturnCorrectAnswer(Circle circle, double expectedArea)
     {
         // Assign
         
         
         // Act
         var area = circle.GetArea();
+        
+        // Assert
+        area.Should().BeApproximately(expectedArea, DoubleExtensions.ERROR);
+    }
+
+    [Theory]
+    [ClassData(typeof(CircleTestData))]
+    public void ShapeGetArea_ShouldReturnCorrectAnswerForCircle(Circle circle, double expectedArea)
+    {
+        // Assign
+        
+        
+        // Act
+        var area = Shape.GetArea(circle);
         
         // Assert
         area.Should().BeApproximately(expectedArea, DoubleExtensions.ERROR);
